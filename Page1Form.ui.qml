@@ -60,4 +60,29 @@ Item {
             font.pixelSize: 30
         }
     }
+
+    Image {
+        id: image1
+        y: 9
+        width: 69
+        height: 57
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+        sourceSize.height: 100
+        sourceSize.width: 100
+        source: "money.png"
+    }
+
+    Image {
+        id: image2
+        x: 7
+        y: 9
+        width: 69
+        height: 57
+        anchors.right: parent.right
+        anchors.rightMargin: 10
+        source: "money.png"
+        sourceSize.width: 100
+        sourceSize.height: 100
+    }
 }
