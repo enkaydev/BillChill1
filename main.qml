@@ -6,7 +6,7 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("BillChill")
 
     SwipeView {
         id: swipeView
@@ -16,12 +16,12 @@ ApplicationWindow {
         Page1 {
         }
 
-        Page {
+       /* Page {
             Label {
                 text: qsTr("Second page")
                 anchors.centerIn: parent
             }
-        }
+        } */
     }
 
     /*footer: TabBar {
@@ -34,4 +34,5 @@ ApplicationWindow {
             text: qsTr("Second")
         }
     }*/
+
 }
