@@ -56,7 +56,7 @@ Item {
             horizontalAlignment: Text.AlignHCenter
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
-            anchors.topMargin: 30
+            anchors.topMargin: 25
             font.pixelSize: 30
         }
     }

@@ -1,5 +1,5 @@
 QT += qml quick
-
+QT += sql
 CONFIG += c++11
 
 SOURCES += main.cpp
@@ -11,3 +11,6 @@ QML_IMPORT_PATH =
 
 # Default rules for deployment.
 include(deployment.pri)
+
+DISTFILES += \
+    BillChill
