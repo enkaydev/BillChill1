@@ -26,18 +26,22 @@ ApplicationWindow {
                 var db = LocalStorage.openDatabaseSync("BillChill", "1.0", "Chill mal", 1000000)
 
                 var a = groupText
+                var id = 0
+
+                id++
 
                 db.transaction(
                     function(tx) {
                         // Create the database if it doesn't already exist
-                        tx.executeSql('CREATE TABLE IF NOT EXISTS Greeting(groupname TEXT)');
+                        tx.executeSql('CREATE TABLE IF NOT EXISTS Greeting(gid TEXT, groupname TEXT)');
 
                         // Add (another) greeting row
-                        tx.executeSql('INSERT INTO Greeting VALUES(?)', [a])
+                        tx.executeSql('INSERT INTO Greeting VALUES(?, ?)', [id, a])
 
                     }
                 )
             }
+
 
 
 
@@ -48,6 +52,9 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
                 visible: false
+
+
+
 
                 Text {
                     id: groupDisplayText
@@ -70,6 +77,7 @@ ApplicationWindow {
                         )
                     }
 
+
                     Component.onCompleted: findNames()
                 }
 
@@ -77,10 +85,12 @@ ApplicationWindow {
                         State {
                             name: "visible"
                             PropertyChanges { target: groupNames; visible: true}
+
                         },
                         State {
                             name: "nonvisible"
                             PropertyChanges { target: groupNames; visible: false}
+
                         }
                     ]
             }
@@ -107,12 +117,14 @@ ApplicationWindow {
                 item1.state = "GroupAddUser"
                 textInGroupName = textInput1.text.toString()
                 console.log(saveGroupName (textInGroupName))
+                groupDisplayText.findNames()
             }
 
             textInput1.onAccepted: {
                 textInGroupName = textInput1.text.toString()
                 console.log(saveGroupName (textInGroupName))
                 item1.state = "GroupAddUser"
+                groupDisplayText.findNames()
 
 
             }
@@ -128,6 +140,7 @@ ApplicationWindow {
                     item1.state = "Start"
                     groupNames.state = "nonvisible"
                 }
+
             }
         }
     }
