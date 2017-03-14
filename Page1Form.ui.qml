@@ -11,6 +11,8 @@ Item {
     property alias back: back
     property alias confirmgroup: confirmgroup
     property alias textInput1: textInput1
+    property alias textInputUser: textInputUser
+    property alias confirmuser: confirmuser
     state: "Start"
 
 
@@ -144,6 +146,36 @@ Item {
                 anchors.top: parent.top
                 anchors.topMargin: 25
                 font.pixelSize: 20
+            }
+        }
+
+        ColumnLayout {
+            id: columnLayoutUser
+            x: 206
+            y: 107
+            width: 100
+            height: 150
+            anchors.top: parent.top
+            anchors.topMargin: 125
+
+            Text {
+                id: textUser
+                text: qsTr("User Name")
+                font.italic: true
+                font.pixelSize: 24
+            }
+
+            TextField {
+                id: textInputUser
+                width: 200
+                height: 40
+                placeholderText: qsTr("Enter name")
+                font.pixelSize: 18
+            }
+
+            Button {
+                id: confirmuser
+                text: qsTr("Confirm")
             }
         }
 
